@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muyumak <muyumak@student.42>               +#+  +:+       +#+        */
+/*   By: muyumak <muyumak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/08 01:00:16 by muyumak           #+#    #+#             */
-/*   Updated: 2023/01/08 01:00:16 by muyumak          ###   ########.fr       */
+/*   Created: 2023/01/09 20:31:09 by muyumak           #+#    #+#             */
+/*   Updated: 2023/01/09 20:31:29 by muyumak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	parent_free(t_pipex *pipex)
 	int	i;
 
 	i = 0;
-	close(pipex->infile);
-	close(pipex->outfile);
+	close(pipex->fd_infile);
+	close(pipex->fd_outfile);
 	while (pipex->cmd_paths[i])
 	{
 		free(pipex->cmd_paths[i]);
