@@ -6,7 +6,7 @@
 /*   By: muyumak <muyumak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 14:22:12 by muyumak           #+#    #+#             */
-/*   Updated: 2023/01/09 20:37:14 by muyumak          ###   ########.fr       */
+/*   Updated: 2023/01/11 01:11:41 by muyumak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define ERR_OUTFILE "Outfile"
 # define ERR_INPUT "Invalid number of arguments.\n"
 # define ERR_PIPE "Pipe"
-# define ERR_CMD "Command not found\n"
+# define ERR_CMD "zsh: command not found\n"
 
 typedef struct s_pipex
 {
@@ -40,13 +40,14 @@ typedef struct s_pipex
 
 int		ft_strlen(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-void	first_child(t_pipex pipex, char **av, char **envp);
-void	second_child(t_pipex pipex, char **av, char **envp);
 char	**ft_split(const char *s, char c);
 char	*ft_strjoin(const char *s1, const char *s2);
-int		msg(char *err);
-void	msg_error(char *err);
-void	parent_free(t_pipex *pipex);
-void	child_free(t_pipex *pipex);
+void	error(char *err);
+int		error_return(char *err);
+void	first_child_process(t_pipex pipex, char **argv, char **envp);
+void	second_child_process(t_pipex pipex, char **argv, char **envp);
+char	*get_cmd(char **paths, char *cmd);
+void	child_free(t_pipex pipex);
+void	parent_free(t_pipex pipex);
 
 #endif

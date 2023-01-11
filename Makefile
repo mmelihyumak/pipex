@@ -1,4 +1,4 @@
-SRCS	=		childs.c error.c ft_split.c ft_strjoin.c ft_strncmp.c pipex.c free.c 
+SRCS	=		ft_split.c ft_strjoin.c ft_strncmp.c pipex.c error.c childs_process.c free.c
  
 OBJS	=		$(SRCS:.c=.o)
 
